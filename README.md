@@ -1,5 +1,7 @@
 # create-react-chrome-extension
 
+**I removed a bunch of stuff like client side routing that I didn't want, and configured content scripts to also be compiled by webpack in order to inject React components into a webpage (see src/content.js) for a project I may or may not end up actually finishing :)**
+
 create-react-chrome-extension is a template for building Chrome and Firefox extensions using React and state-of-the-art settings. This project aims to provide a solid starting point for developers looking to create browser extensions with modern web technologies.
 
 Consider giving it a ⭐️ if you like it to show your support!
