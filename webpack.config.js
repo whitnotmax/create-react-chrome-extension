@@ -6,12 +6,13 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 module.exports = {
   mode: "development",
   entry: {
-    app: "./src/index.js",
+    popup: "./src/popup.js",
+    content: "./src/content.js"
   },
   output: {
     // We want to create the JavaScript bundles under a
     // 'static' directory
-    filename: "static/[name].[hash].js",
+    filename: "static/[name].js",
     // Absolute path to the desired output directory. In our
     // case a directory named 'dist'
     // '__dirname' is a Node variable that gives us the absolute
@@ -28,7 +29,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.(js.?)$/,
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
@@ -60,27 +61,28 @@ module.exports = {
     ],
   },
   optimization: {
-    splitChunks: {
-      cacheGroups: {
-        styles: {
-          name: "styles",
-          test: /\.css$/,
-          chunks: "all",
-          enforce: true,
-        },
-        vendor: {
-          chunks: "initial",
-          test: "vendor",
-          name: "vendor",
-          enforce: true,
-        },
-      },
-    },
+    //splitChunks: {
+    //  cacheGroups: {
+    //    styles: {
+    //      name: "styles",
+    //      test: /\.css$/,
+    //      chunks: "all",
+    //      enforce: true,
+    //    },
+    //    vendor: {
+    //      chunks: "initial",
+    //      test: "vendor",
+    //      name: "vendor",
+    //      enforce: true,
+    //    },
+    //  },
+    //},
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "public/index.html",
+      template: "public/popup-entry.html",
       favicon: "public/favicon.ico",
+      excludeChunks: ["content"]
     }),
 
     // Create the stylesheet under 'styles' directory
@@ -91,7 +93,6 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: "./public/manifest.json", to: "manifest.json" },
-        { from: "./public/content.js", to: "content.js" },
         { from: "./public/icons", to: "icons" },
       ],
     }),
