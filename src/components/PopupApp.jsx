@@ -1,7 +1,6 @@
 /*global chrome*/
 import React, { useState, useEffect } from "react"
-
-const App = () => {
+const PopupApp = () => {
   return (
     <>
       <p>Hi</p>
@@ -9,6 +8,6 @@ const App = () => {
   )
 }
 
-export default App
+export default PopupApp;
 
 

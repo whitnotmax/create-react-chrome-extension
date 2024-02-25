@@ -15,7 +15,8 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["static/content.js"]
+      "js": ["static/content.js"],
+      "css": ["styles/content.css"]
     }
   ],
   "web_accessible_resources": ["index.html"]

@@ -1,8 +1,7 @@
 /*global chrome*/
 import React from "react"
 import ReactDOM from "react-dom/client"
-import App from "./components/App.jsx"
-
+import PopupApp from "./components/PopupApp.jsx"
 // console.log = (data) => {
 //   console.log(data)
 //   // if chrome is defined
@@ -11,4 +10,4 @@ import App from "./components/App.jsx"
 
 console.log("index.js loading...")
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+ReactDOM.createRoot(document.getElementById("root")).render(<PopupApp />)
